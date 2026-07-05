@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untukmu ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(180deg,#120f2d,#3b2f63);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:#fff;
+}
+
+.container{
+    width:90%;
+    max-width:450px;
+    padding:30px;
+    text-align:center;
+    border-radius:20px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(12px);
+    box-shadow:0 0 20px rgba(255,255,255,.2);
+    z-index:2;
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+#text{
+    min-height:180px;
+    font-size:22px;
+    line-height:38px;
+    transition:.4s;
+}
+
+button{
+    margin-top:25px;
+    padding:15px 40px;
+    border:none;
+    border-radius:50px;
+    background:#ff6fa9;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#ff4f93;
+    transform:scale(1.05);
+}
+
+.sakura{
+    position:fixed;
+    top:-50px;
+    pointer-events:none;
+    user-select:none;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+0%{
+    transform:translate(0,-50px) rotate(0deg);
+    opacity:0;
+}
+10%{
+    opacity:1;
+}
+50%{
+    transform:translate(25px,50vh) rotate(180deg);
+}
+100%{
+    transform:translate(-25px,110vh) rotate(360deg);
+    opacity:0;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Untuk Pacaraku Yang Cantik ❤️</h1>
+
+<div id="text"></div>
+
+<button id="nextBtn">Selanjutnya 👉</button>
+
+</div>
+
+<!-- BACKSOUND -->
+<audio id="bgm" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const kata=[
+
+"Terima kasih karena sudah bertahan sejauh ini. 🤍",
+
+"Aku tahu tidak semua harimu mudah...",
+
+"Tapi percayalah, kamu jauh lebih hebat daripada yang kamu kira. 😇",
+
+"Kalau hari ini terasa berat, istirahatlah sebentar. ❤️",
+
+"Aku akan selalu menjadi orang yang percaya kalau kamu pasti bisa.",
+
+"Semoga senyummu selalu kembali, dan semoga setiap langkahmu dipenuhi kebahagiaan. 💖"
+
+];
+
+let index=0;
+
+const text=document.getElementById("text");
+const btn=document.getElementById("nextBtn");
+
+text.innerHTML=kata[index];
+
+btn.addEventListener("click",()=>{
+
+    index++;
+
+    if(index<kata.length){
+
+        text.style.opacity="0";
+
+        setTimeout(()=>{
+
+            text.innerHTML=kata[index];
+            text.style.opacity="1";
+
+        },300);
+
+    }else{
+
+        window.location.href="final.html";
+
+    }
+
+});
+
+// Sakura
+function createSakura(){
+
+    const s=document.createElement("div");
+
+    s.className="sakura";
+    s.textContent="🌸";
+
+    s.style.left=Math.random()*100+"vw";
+    s.style.fontSize=(15+Math.random()*20)+"px";
+    s.style.animationDuration=(6+Math.random()*5)+"s";
+
+    document.body.appendChild(s);
+
+    s.addEventListener("animationend",()=>{
+        s.remove();
+    });
+
+}
+
+setInterval(createSakura,500);
+
+// BACKSOUND
+const bgm=document.getElementById("bgm");
+
+bgm.volume=0.5;
+
+bgm.play().catch(()=>{
+    document.body.addEventListener("click",()=>{
+        bgm.play();
+    },{once:true});
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Untuk Mu ❤</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(180deg,#120f2d,#2f2258,#ffb6d9);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+    color:white;
+}
+
+.card{
+    width:90%;
+    max-width:520px;
+    padding:35px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(12px);
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 0 40px rgba(255,255,255,.2);
+    animation:fadeIn 1.5s;
+    z-index:10;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1{
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:20px;
+    line-height:34px;
+    margin-bottom:20px;
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:#ff5fa2;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    background:#ff3f8b;
+}
+
+.heart,
+.sakura{
+    position:fixed;
+    pointer-events:none;
+    user-select:none;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+0%{
+    transform:translateY(-10vh) rotate(0deg);
+    opacity:0;
+}
+
+10%{
+    opacity:1;
+}
+
+100%{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+}
+
+}
+
+#popup{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    justify-content:center;
+    align-items:center;
+    z-index:99;
+}
+
+.box{
+    background:white;
+    color:#444;
+    width:90%;
+    max-width:420px;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.box h2{
+    color:#ff4f93;
+    margin-bottom:15px;
+}
+
+.box button{
+    margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1> Untuk Kamu ❤</h1>
+
+<p>
+
+Terima kasih sudah menjadi seseorang yang selalu kuat.
+
+<br><br>
+
+Aku mungkin tidak selalu bisa membuat harimu sempurna.
+
+Tapi aku ingin menjadi alasan kenapa kamu masih percaya kalau besok akan menjadi hari yang lebih baik.
+
+<br><br>
+
+Tetaplah menjadi orang yang selalu aku banggakan.
+
+Aku akan selalu mendoakan yang terbaik untukmu.
+
+❤️🌸
+
+</p>
+
+<button id="loveBtn">
+lanjyut🚑
+</button>
+
+</div>
+
+<div id="popup">
+
+<div class="box">
+
+<h2> Teruntuk Pacaraku Yang Cantik Dan imut😆 </h2>
+
+<p>
+
+Terima kasih sudah membaca hadiah kecil ini.
+
+Semoga setiap langkahmu selalu dipenuhi kebahagiaan.
+
+Tetaplah tersenyum, tetaplah menjadi dirimu sendiri.
+
+Aku akan selalu mendukung dan mendoakan yang terbaik untukmu.
+
+❤️🌸
+
+</p>
+
+<button onclick="location.href='index.html'">
+Baca Lagi ❓
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const popup=document.getElementById("popup");
+
+document.getElementById("loveBtn").addEventListener("click",()=>{
+
+    popup.style.display="flex";
+
+});
+
+function create(type){
+
+    const e=document.createElement("div");
+
+    e.className=type;
+
+    e.textContent=type==="heart"?"❤️":"🌸";
+
+    e.style.left=Math.random()*100+"vw";
+
+    e.style.fontSize=(15+Math.random()*20)+"px";
+
+    e.style.animationDuration=(5+Math.random()*5)+"s";
+
+    document.body.appendChild(e);
+
+    e.addEventListener("animationend",()=>{
+
+        e.remove();
+
+    });
+
+}
+
+setInterval(()=>create("heart"),700);
+setInterval(()=>create("sakura"),450);
+
+</script>
+
+</body>
+</html>
