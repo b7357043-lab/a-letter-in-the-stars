@@ -1,0 +1,759 @@
+/* ==========================================
+   A LETTER IN THE STARS
+   STYLE.CSS
+   PART 1
+========================================== */
+
+:root{
+
+--pink:#ff8dbd;
+--pink2:#ffc8df;
+--white:#ffffff;
+--glass:rgba(255,255,255,.08);
+--border:rgba(255,255,255,.18);
+--shadow:rgba(0,0,0,.45);
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html,body{
+
+width:100%;
+height:100%;
+overflow:hidden;
+
+font-family:'Poppins',sans-serif;
+
+background:#040816;
+
+color:white;
+
+}
+
+/* =======================
+BACKGROUND
+======================= */
+
+body{
+
+background:
+radial-gradient(circle at top,#1d2d63,#101833 45%,#040816 100%);
+
+}
+
+/* =======================
+AURORA
+======================= */
+
+.aurora{
+
+position:fixed;
+
+width:1200px;
+height:600px;
+
+border-radius:50%;
+
+filter:blur(120px);
+
+opacity:.18;
+
+animation:auroraMove 18s ease-in-out infinite alternate;
+
+pointer-events:none;
+
+z-index:-2;
+
+}
+
+.aurora1{
+
+background:#44ffcc;
+
+top:-250px;
+left:-300px;
+
+}
+
+.aurora2{
+
+background:#7d6cff;
+
+bottom:-250px;
+right:-250px;
+
+animation-duration:24s;
+
+}
+
+@keyframes auroraMove{
+
+0%{
+
+transform:
+translateY(0)
+translateX(0)
+rotate(0deg);
+
+}
+
+100%{
+
+transform:
+translateY(120px)
+translateX(100px)
+rotate(12deg);
+
+}
+
+}
+
+/* =======================
+STARS
+======================= */
+
+#stars{
+
+position:fixed;
+inset:0;
+
+pointer-events:none;
+
+z-index:-1;
+
+background-image:
+
+radial-gradient(white 1px,transparent 1px),
+
+radial-gradient(white 1px,transparent 1px),
+
+radial-gradient(white 2px,transparent 2px);
+
+background-size:
+
+120px 120px,
+
+180px 180px,
+
+250px 250px;
+
+animation:starsMove 18s linear infinite;
+
+opacity:.55;
+
+}
+
+@keyframes starsMove{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(80px);
+
+}
+
+}
+
+/* =======================
+LOADING
+======================= */
+
+#loading{
+
+position:fixed;
+
+inset:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+background:#040816;
+
+z-index:99999;
+
+transition:1s;
+
+}
+
+.loader{
+
+width:80px;
+height:80px;
+
+border-radius:50%;
+
+border:6px solid rgba(255,255,255,.15);
+
+border-top:6px solid var(--pink);
+
+animation:spin 1s linear infinite;
+
+}
+
+#loading h2{
+
+margin-top:30px;
+
+font-weight:600;
+
+letter-spacing:2px;
+
+}
+
+#loading p{
+
+margin-top:10px;
+
+opacity:.65;
+
+}
+
+@keyframes spin{
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* =======================
+WELCOME
+======================= */
+
+#welcome{
+
+position:absolute;
+
+inset:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:20px;
+
+}
+
+.glass{
+
+width:90%;
+
+max-width:650px;
+
+padding:45px;
+
+background:var(--glass);
+
+backdrop-filter:blur(18px);
+
+border:1px solid var(--border);
+
+border-radius:28px;
+
+box-shadow:
+
+0 15px 40px var(--shadow);
+
+text-align:center;
+
+animation:fadeUp 1.4s ease;
+
+}
+
+.glass h3{
+
+font-weight:300;
+
+color:var(--pink2);
+
+margin-bottom:8px;
+
+}
+
+.glass h1{
+
+font-family:'Dancing Script',cursive;
+
+font-size:62px;
+
+margin-bottom:25px;
+
+}
+
+.glass p{
+
+line-height:1.9;
+
+opacity:.92;
+
+margin-bottom:35px;
+
+}
+
+/* =======================
+BUTTON
+======================= */
+
+button{
+
+border:none;
+
+outline:none;
+
+cursor:pointer;
+
+padding:16px 36px;
+
+border-radius:50px;
+
+font-size:16px;
+
+font-weight:600;
+
+color:white;
+
+background:
+
+linear-gradient(
+135deg,
+#ff5fa2,
+#ff86b8);
+
+transition:.35s;
+
+box-shadow:
+
+0 10px 30px rgba(255,90,150,.35);
+
+}
+
+button:hover{
+
+transform:
+
+translateY(-4px)
+scale(1.05);
+
+box-shadow:
+
+0 20px 45px rgba(255,90,150,.6);
+
+}
+
+/* =======================
+MAIN
+======================= */
+
+#main{
+
+display:none;
+
+position:absolute;
+
+inset:0;
+
+justify-content:center;
+
+align-items:center;
+
+padding:20px;
+
+}
+
+.messageBox{
+
+max-width:800px;
+
+}
+
+/* =======================
+MOON
+======================= */
+
+.moon{
+
+position:absolute;
+
+top:60px;
+
+right:80px;
+
+width:140px;
+
+height:140px;
+
+border-radius:50%;
+
+background:white;
+
+box-shadow:
+
+0 0 35px white,
+
+0 0 90px rgba(255,255,255,.55);
+
+}
+
+.moon::after{
+
+content:"";
+
+position:absolute;
+
+width:120px;
+height:120px;
+
+background:#0d1732;
+
+border-radius:50%;
+
+top:-8px;
+left:28px;
+
+}
+
+/* =======================
+TITLE
+======================= */
+
+#title{
+
+font-family:'Dancing Script',cursive;
+
+font-size:60px;
+
+margin-bottom:25px;
+
+color:#ffd7eb;
+
+}
+
+#message{
+
+line-height:2;
+
+font-size:18px;
+
+min-height:220px;
+
+white-space:pre-line;
+
+}
+
+.buttons{
+
+margin-top:35px;
+
+display:flex;
+
+gap:15px;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+/* ==========================================
+   PART 2B
+   METEOR • SECRET STAR • FIREWORKS
+========================================== */
+
+/* ===========================
+   METEOR CONTAINER
+=========================== */
+
+#meteors{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:2;
+}
+
+/* Meteor dibuat oleh JavaScript */
+.meteor{
+
+    position:absolute;
+
+    width:180px;
+    height:2px;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,1),
+        rgba(255,255,255,.5),
+        transparent);
+
+    border-radius:999px;
+
+    transform:rotate(-35deg);
+
+    animation:meteorFall linear forwards;
+
+    filter:drop-shadow(0 0 10px white);
+
+}
+
+@keyframes meteorFall{
+
+    from{
+
+        transform:
+        translate(0,0)
+        rotate(-35deg);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:
+        translate(-900px,900px)
+        rotate(-35deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ===========================
+   SECRET STAR
+=========================== */
+
+#secretStar{
+
+    position:fixed;
+
+    bottom:20px;
+
+    right:20px;
+
+    width:46px;
+    height:46px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    transition:.35s;
+
+    user-select:none;
+
+    z-index:50;
+
+}
+
+#secretStar:hover{
+
+    transform:scale(1.2) rotate(18deg);
+
+    box-shadow:0 0 18px rgba(255,255,255,.5);
+
+}
+
+/* ===========================
+   SECRET MESSAGE
+=========================== */
+
+#secretMessage{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(0,0,0,.65);
+
+    z-index:999;
+
+    padding:20px;
+
+}
+
+#secretMessage .glass{
+
+    max-width:520px;
+
+}
+
+/* ===========================
+   FIREWORKS CANVAS
+=========================== */
+
+#fireworks{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:40;
+
+}
+
+/* ===========================
+   HEART PARTICLE
+=========================== */
+
+.heart{
+
+    position:fixed;
+
+    font-size:20px;
+
+    pointer-events:none;
+
+    animation:heartFly 1.2s ease forwards;
+
+    z-index:100;
+
+}
+
+@keyframes heartFly{
+
+    0%{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(.7);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+        translateY(-120px)
+        scale(1.6);
+
+    }
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+    .glass{
+
+        padding:30px 22px;
+
+    }
+
+    .glass h1{
+
+        font-size:46px;
+
+    }
+
+    #title{
+
+        font-size:42px;
+
+    }
+
+    #message{
+
+        font-size:16px;
+
+        min-height:180px;
+
+    }
+
+    .moon{
+
+        width:90px;
+        height:90px;
+
+        top:20px;
+        right:20px;
+
+    }
+
+    .moon::after{
+
+        width:78px;
+        height:78px;
+
+        left:18px;
+
+    }
+
+    .buttons{
+
+        flex-direction:column;
+
+    }
+
+    button{
+
+        width:100%;
+
+    }
+
+}
